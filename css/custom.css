@@ -1,0 +1,40 @@
+/* your styles go here */
+.tag-p {
+    margin-top: 10px
+}
+
+.xx-small-font {
+    font-size: xx-small;
+}
+
+.span-right {
+    float: right;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.img-nitrite {
+    background-color: #f2b3ae;
+}
+
+pre {
+    text-align: left;
+}
+
+.logo {
+    width: auto;
+    height: 150px
+}
+
+.github-logo {
+    width: auto;
+    height: 32px;
+    margin-left: 20%;
+}
+
+.doc-details {
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
