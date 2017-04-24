@@ -152,7 +152,7 @@ syncHandle.startSync();
 
 
                             <pre>
-                                <code class="language-css">
+                                <code class="language-java">
 # Mongo Config
 datagate.mongo.host=
 datagate.mongo.port=
@@ -166,15 +166,12 @@ datagate.mongo.database=
                                 To run the server run the below command from the <b>bin</b> directory.
                             </p>
 
-                            <pre>
-                                <code class="command-line-prompt" data-user="user">
-./datagate.sh
-                                </code>
+                            <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">./datagate.sh</code>
                             </pre>
 
                             <h5>Docker Image</h5>
                             <p>
-                                The docker image for the DataGate server needs to be configured by a Dockerfile.
+                                The docker image for the DataGate server needs to be configured by a Dockerfile like below.
                             </p>
 
                             <pre>
@@ -202,6 +199,10 @@ ENV DATAGATE_MONGO_DATABASE "demo"
 ENTRYPOINT [ "./datagate.sh" ]
                                 </code>
                             </pre>
+
+                            <p>
+                                Now build and run the docker image.
+                            </p>
 
                             <h4>Admin Portal</h4>
 
