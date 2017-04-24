@@ -23,9 +23,16 @@ pre {
     text-align: left;
 }
 
-.logo {
+.logo-md {
     width: auto;
-    height: 150px
+    height: 150px;
+    margin-left: 25%;
+}
+
+.logo-xs {
+    width: auto;
+    height: 150px;
+    margin-left: 15%;
 }
 
 .github-logo {
@@ -37,4 +44,8 @@ pre {
 .doc-details {
     margin-top: 100px;
     margin-bottom: 200px;
+}
+
+.github-badge {
+    float: right
 }
