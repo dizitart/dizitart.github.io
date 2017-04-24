@@ -48,7 +48,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1.0 <span class="label label-success xx-small-font">Current</span></td>
+                            <td>1.0 <span class="label label-success label-release xx-small-font">Current</span></td>
                             <td>Reference | <a href="https://javadoc.io/doc/org.dizitart/nitrite">API</a></td>
                         </tr>
                         </tbody>
@@ -58,11 +58,11 @@
                         <i class="fa fa-heart" aria-hidden="true" style="color: red"></i>
                         from Kolkata, India. </p>
                     <p class="social">
-                        <a href="https://github.com/dizitart" data-animate-hover="pulse" class="external github"><i
+                        <a href="https://github.com/dizitart/nitrite-database" data-animate-hover="pulse" class="external github"><i
                                 class="fa fa-github"></i></a>
                         <a href="https://twitter.com/dizitart" data-animate-hover="pulse" class="external twitter"><i
                                 class="fa fa-twitter"></i></a>
-                        <a href="mailto:support@dizitart.com?subject=General Query" data-animate-hover="pulse"
+                        <a href="mailto:support@dizitart.com?subject=Nitrite Query" data-animate-hover="pulse"
                            class="email"><i class="fa fa-envelope"></i></a></p>
                     <div class="copyright">
                         <p class="credit">&copy; 2017 Dizitart | Template by <a
@@ -85,16 +85,16 @@
                     </a>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <div class="content-column-content">
-                            <h1>Nitrite Database
-                                <!--<a href="https://github.com/dizitart/nitrite-database">-->
-                                    <!--<img src="img/github.svg" class="github-logo">-->
-                                <!--</a>-->
+                            <h1>
+                                <a href="https://github.com/dizitart/nitrite-database">
+                                    <img src="img/nitrite-logo.svg" class="product-logo">
+                                </a> Nitrite Database
                             </h1>
                             <p class="lead"><b>NO</b>sql <b>O</b>bject (<b>NO2</b> a.k.a Nitrite) database is an open source nosql embedded
-                                document store written in Java. It has MongoDB like API. It supports both in-memory and
-                                single file based persistent store powered by MVStore engine of h2 database.</p>
+                                document store written in Java with MongoDB like API. It supports both in-memory and
+                                single file based persistent store.</p>
                             <div>
                                 <pre>
                                     <code class="language-xml">
@@ -107,7 +107,7 @@
                                 </pre>
 
 <p></p>
-                                <h3>Example</h3>
+                                <h4>Usage</h4>
 
                                 <pre>
                                     <code class="language-java">
@@ -124,7 +124,7 @@ Document doc = createDocument("firstName", "John")
      .put("lastName", "Doe")
      .put("birthDay", new Date())
      .put("data", new byte[] {1, 2, 3})
-     .put("fruits", new ArrayList&#x3C;String&#x3E;() {{ add("apple"); add("orange"); add("banana"); }})
+     .put("fruits", new ArrayList&#x3C;String&#x3E;() {{ add("apple"); add("orange"); }})
      .put("note", "a quick brown fox jump over the lazy dog");
 
 // insert the document
@@ -136,8 +136,11 @@ collection.update(eq("firstName", "John"), createDocument("lastName", "Wick"));
                                 </pre>
                             </div>
                             <p></p>
-                            <!-- /#main-slider-->
-                            <p>Nitrite is a server-less embedded database ideal for desktop, mobile or small web applications.</p>
+
+                            <p>
+                                Nitrite is a server-less embedded database ideal for desktop, mobile or small web applications.
+                                It is powered by <a href="http://www.h2database.com/html/mvstore.html">MVStore</a> engine of h2 database.
+                            </p>
                             <h5>It features:</h5>
                             <ul>
                                 <li>Embedded key-value/document and object store</li>
@@ -152,7 +155,7 @@ collection.update(eq("firstName", "John"), createDocument("lastName", "Wick"));
 
                             <p></p>
 
-                            <h3>Create Indices</h3>
+                            <h4>Create Indices</h4>
 
                             <pre>
                                     <code class="language-java">
@@ -164,7 +167,7 @@ collection.createIndex("note", indexOptions(IndexType.Fulltext));
 
                             <p></p>
 
-                            <h3>Query a Collection</h3>
+                            <h4>Query a Collection</h4>
 
                             <pre>
                                     <code class="language-java">
@@ -190,7 +193,7 @@ for (Document document : cursor) {
 
                             <p></p>
 
-                            <h3>Synchronization</h3>
+                            <h4>Synchronization</h4>
                             <p>Nitrite database supports cross device synchronization via <a href="nitrite-datagate.html">Nitrite DataGate</a> server.</p>
                             <div>
                                 <pre>
@@ -246,10 +249,12 @@ syncHandle.startSync();
                         <i class="fa fa-heart" aria-hidden="true" style="color: red"></i>
                         from Kolkata, India. </p>
                     <p class="social">
-                        <a href="#" data-animate-hover="pulse" class="external github"><i class="fa fa-github"></i></a>
-                        <a href="#" data-animate-hover="pulse" class="external twitter"><i
+                        <a href="https://github.com/dizitart/nitrite-database" data-animate-hover="pulse" class="external github"><i
+                                class="fa fa-github"></i></a>
+                        <a href="https://twitter.com/dizitart" data-animate-hover="pulse" class="external twitter"><i
                                 class="fa fa-twitter"></i></a>
-                        <a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
+                        <a href="mailto:support@dizitart.com?subject=Nitrite Query" data-animate-hover="pulse"
+                           class="email"><i class="fa fa-envelope"></i></a></p>
                     <div class="copyright">
                         <p class="credit">&copy; 2017 Dizitart | Template by <a
                                 href="https://bootstrapious.com/tutorials" class="external">Bootstrapious</a></p>

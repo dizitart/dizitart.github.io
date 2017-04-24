@@ -26,7 +26,7 @@ pre {
 .logo-md {
     width: auto;
     height: 150px;
-    margin-left: 25%;
+    margin-left: 21%;
 }
 
 .logo-xs {
@@ -35,10 +35,10 @@ pre {
     margin-left: 15%;
 }
 
-.github-logo {
+.product-logo {
     width: auto;
-    height: 32px;
-    margin-left: 20%;
+    height: 64px;
+    margin-bottom: 10px;
 }
 
 .doc-details {
@@ -48,4 +48,14 @@ pre {
 
 .github-badge {
     float: right
+}
+
+.label-release {
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
+pre {
+    margin-bottom: 30px !important;
 }

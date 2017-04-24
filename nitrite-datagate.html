@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dizitart | DataGate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Google fonts - Open Sans-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <!--Highlighter-->
+    <link rel="stylesheet" href="css/prism.css" data-noprefix>
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.sea.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+<div id="all">
+    <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <!--   *** SIDEBAR ***-->
+            <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+                <div class="sidebar-content">
+                    <a href="index.html">
+                        <img src="img/logo.svg" class="logo-md">
+                    </a>
+
+                    <table class="table doc-details">
+                        <thead>
+                        <tr>
+                            <th>RELEASE</th>
+                            <th>DOWNLOAD</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1.0 <span class="label label-success label-release xx-small-font">Current</span></td>
+                            <td><a href="https://hub.docker.com/r/dizitart/nitrite-datagate/">Docker</a> | Zip</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="sidebar-p">
+                        <i class="fa fa-heart" aria-hidden="true" style="color: red"></i>
+                        from Kolkata, India. </p>
+                    <p class="social">
+                        <a href="https://github.com/dizitart/nitrite-database/tree/master/nitrite-datagate" data-animate-hover="pulse" class="external github"><i
+                                class="fa fa-github"></i></a>
+                        <a href="https://twitter.com/dizitart" data-animate-hover="pulse" class="external twitter"><i
+                                class="fa fa-twitter"></i></a>
+                        <a href="mailto:support@dizitart.com?subject=DataGate Query" data-animate-hover="pulse"
+                           class="email"><i class="fa fa-envelope"></i></a></p>
+                    <div class="copyright">
+                        <p class="credit">&copy; 2017 Dizitart | Template by <a
+                                href="https://bootstrapious.com/tutorials" class="external">Bootstrapious</a></p>
+                        <!-- Please do not remove the backlink to us, unless you support the development at https://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)        -->
+
+                    </div>
+                </div>
+            </div>
+            <!--   *** SIDEBAR END ***  -->
+
+            <!--   *** DETAIL ***-->
+            <div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+                <div class="small-navbar visible-xs">
+                    <h1 class="small-navbar-heading"> <a href="index.html">Dizitart </a></h1>
+                </div>
+                <div class="github-badge hidden-xs">
+                    <a href="https://github.com/dizitart/nitrite-database/tree/master/nitrite-datagate">
+                        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="content-column-content">
+                            <h1>
+                                Nitrite DateGate
+                            </h1>
+                            <p class="lead">
+                                If you are using <a href="nitrite-database.html">Nitrite Database</a> in your
+                                applications and want to synchronize the data in real-time across the devices, you
+                                need DataGate.
+                            </p>
+                            <div>
+                                <img src="img/macbook-datagate.png" class="img-responsive">
+                                <p></p>
+                                <p>
+                                    To enable synchronization, a Nitrite database needs to be connected to
+                                    a running DataGate instance.
+                                </p>
+                                <h4>Usage</h4>
+
+                                <pre>
+                                    <code class="language-java">
+// connect to a DataGate server running at localhost 9090 port
+DataGateClient dataGateClient = new DataGateClient("http://localhost:9090")
+        .withAuth("userId", "password");
+DataGateSyncTemplate syncTemplate
+        = new DataGateSyncTemplate(dataGateClient, "remote-collection@userId");
+
+// create sync handle
+SyncHandle syncHandle = Replicator.of(db)
+        .forLocal(collection)
+        // a DataGate sync template implementation
+        .withSyncTemplate(syncTemplate)
+        // replication attempt delay of 1 sec
+        .delay(timeSpan(1, TimeUnit.SECONDS))
+        // both-way replication
+        .ofType(ReplicationType.BOTH_WAY)
+        // sync event listener
+        .withListener(new SyncEventListener() {
+            @Override
+            public void onSyncEvent(SyncEventData eventInfo) {
+
+            }
+        })
+        .configure();
+
+// start sync in the background using handle
+syncHandle.startSync();
+                                    </code>
+                                </pre>
+                            </div>
+
+                            <h4>Configuration</h4>
+                            <p>
+                                DataGate needs a MongoDb database to store the data at server side.
+                                Java 1.8 is a minimum requirement to run DataGate server.
+
+                                DataGate is available as a zip distribution or as a docker image from docker hub.
+                            </p>
+
+                            <h5>Zipped Distribution</h5>
+                            <p>
+                                To configure the mongo details edit the file <b>datagate.properties</b>. The file can be
+                                found in the <b>conf</b> directory.
+                            </p>
+
+
+                            <pre>
+                                <code class="language-css">
+# Mongo Config
+datagate.mongo.host=
+datagate.mongo.port=
+datagate.mongo.user=
+datagate.mongo.password=
+datagate.mongo.database=
+                                </code>
+                            </pre>
+
+                            <p>
+                                To run the server run the below command from the <b>bin</b> directory.
+                            </p>
+
+                            <pre>
+                                <code class="command-line-prompt" data-user="user">
+./datagate.sh
+                                </code>
+                            </pre>
+
+                            <h5>Docker Image</h5>
+                            <p>
+                                The docker image for the DataGate server needs to be configured by a Dockerfile.
+                            </p>
+
+                            <pre>
+                                <code class="language-docker">
+FROM dizitart/nitrite-datagate
+
+COPY keystore.jks /
+
+## Connection details (Replace with your own values)
+ENV DATAGATE_HOST "0.0.0.0"
+ENV DATAGATE_HTTP_PORT "8080"
+ENV DATAGATE_HTTPS_PORT "8443"
+ENV DATAGATE_MONITOR_PORT "9090"
+ENV DATAGATE_KEY_STORE "keystore.jks"
+ENV DATAGATE_KEY_PASSWORD "s3cret"
+
+## Mongo connection details (Replace with your own values)
+ENV DATAGATE_MONGO_HOST "192.168.0.100"
+ENV DATAGATE_MONGO_PORT "2706"
+ENV DATAGATE_MONGO_USER "demo"
+ENV DATAGATE_MONGO_PASSWORD "demoPass"
+ENV DATAGATE_MONGO_DATABASE "demo"
+
+## Starts the server
+ENTRYPOINT [ "./datagate.sh" ]
+                                </code>
+                            </pre>
+
+                            <h4>Admin Portal</h4>
+
+                            <p>
+                                DataGate comes with an Admin Portal to better manage connected clients and users to the system.
+                                To login to the admin portal an admin user needs to be created first using mongo shell using the below
+                                command.
+                            </p>
+
+                            <pre>
+                                <code class="language-javascript">
+db.getCollection('no2.datagate.users').insert({
+    userName: "admin",
+    password: "password",
+    accountNonExpired: true,
+    accountNonLocked: true,
+    credentialsNonExpired: true,
+    enabled: true,
+    authorities: ["ADMIN"]
+});
+                                </code>
+                            </pre>
+
+                            <h4>Analytics</h4>
+
+                            <p>
+                                DataGate provides some rudimentary usage analytics. To enable analytics the user agent
+                                details needs to be provided in the DataGateClient while configuring replication in
+                                Nitrite database.
+                            </p>
+
+                            <pre>
+                                <code class="language-java">
+UserAgent userAgent = new UserAgent();
+userAgent.setAppName("MyAwesomeApp");
+userAgent.setAppVersion("1.4.2");
+userAgent.setDevice("Android");
+userAgent.setClientId("cl154");
+
+DataGateClient dataGateClient = new DataGateClient("http://localhost:9090")
+    .withAuth("userId", "password")
+    .withUserAgent(userAgent);
+
+DataGateSyncTemplate syncTemplate
+    = new DataGateSyncTemplate(dataGateClient, "remote-collection@userId");
+                                </code>
+                            </pre>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="small-navbar visible-xs">
+                    <table class="table doc-details">
+                        <thead>
+                        <tr>
+                            <th>RELEASE</th>
+                            <th>DOWNLOAD</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1.0 <span class="label label-success label-release xx-small-font">Current</span></td>
+                            <td><a href="https://hub.docker.com/r/dizitart/nitrite-datagate/">Docker</a> | Zip</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="sidebar-p">
+                        <i class="fa fa-heart" aria-hidden="true" style="color: red"></i>
+                        from Kolkata, India. </p>
+                    <p class="social">
+                        <a href="https://github.com/dizitart/nitrite-database/tree/master/nitrite-datagate" data-animate-hover="pulse" class="external github"><i
+                                class="fa fa-github"></i></a>
+                        <a href="https://twitter.com/dizitart" data-animate-hover="pulse" class="external twitter"><i
+                                class="fa fa-twitter"></i></a>
+                        <a href="mailto:support@dizitart.com?subject=DataGate Query" data-animate-hover="pulse"
+                           class="email"><i class="fa fa-envelope"></i></a></p>
+                    <div class="copyright">
+                        <p class="credit">&copy; 2017 Dizitart | Template by <a
+                                href="https://bootstrapious.com/tutorials" class="external">Bootstrapious</a></p>
+                        <!-- Please do not remove the backlink to us, unless you support the development at https://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)        -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Javascript files-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/ekko-lightbox.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/front.js"></script>
+<script src="js/prism.js"></script>
+<script>
+
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function () {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>
