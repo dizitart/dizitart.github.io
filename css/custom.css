@@ -19,6 +19,10 @@ a {
     background-color: #f2b3ae;
 }
 
+.img-potassium-nitrite {
+    background-color: #97bdf2;
+}
+
 pre {
     text-align: left;
 }
@@ -38,6 +42,12 @@ pre {
 .product-logo {
     width: auto;
     height: 64px;
+    margin-bottom: 10px;
+}
+
+.kno2-product-logo {
+    width: auto;
+    height: 35px;
     margin-bottom: 10px;
 }
 
